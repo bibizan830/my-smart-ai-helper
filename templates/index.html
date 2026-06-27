@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>киносоветчик с ии</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>AI Киносоветчик</h1>
+     <p>введите фразу о своём настроений. ИИ подберет фильм</p>
+    <form method="post">
+        <label for="message">напиши как ты себя чувствуешь</label>
+        <textarea name="message" id="message" cols="50" rows="4" required placeholder="например: сегодня у меня был отличный день">
+            {{ user_text }}
+     ></textarea>
+        <button type="submit">отправить</button>
+    </form>
+
+     {% if recommendation %}
+     <div class="result">
+         <h3>рекомендация</h3>
+         <p>z{{ recommendation|safe }}</p>
+     </div>
+      {% endif %}
+</body>
+</html>
